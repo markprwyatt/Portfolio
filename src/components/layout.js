@@ -12,8 +12,13 @@ import { StaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import "./layout.css"
 
-const Layout = ({ children }) => (
-  <StaticQuery
+if (typeof window !== "undefined") {
+  // eslint-disable-next-line global-require
+  require("smooth-scroll")('a[href*="#"]')
+}
+
+const Layout = ({ children }) => 
+ (  <StaticQuery
     query={graphql`
       query SiteTitleQuery {
         site {
@@ -36,9 +41,7 @@ const Layout = ({ children }) => (
         >
           <main>{children}</main>
           <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
+            © {new Date().getFullYear()}, Built with Gatsby
           </footer>
         </div>
       </>

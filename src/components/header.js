@@ -1,32 +1,41 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import Menu from "./menu"
 
-const Header = ({ siteTitle }) => (
+const Header = () => (
   <header
     style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
+      background: `#1D3557`,
+      position: 'fiexed',
+      color: '#F1FAEE'
     }}
   >
     <div
       style={{
-        margin: `0 auto`,
+        margin: `0 auto 1rem auto`,
         maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
+        paddingLeft: '1rem',
+        paddingRight: '1rem',
+        display: 'flex',
+        justifyContent: 'space-between',
+        
       }}
     >
-      <h1 style={{ margin: 0 }}>
+      <h1 style={{ 
+        margin: 0,
+        display: 'inline-block',
+        paddingTop: '.1rem' }}>
         <Link
           to="/"
           style={{
-            color: `white`,
             textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
+          }}>MWD
         </Link>
       </h1>
+      <div style={{display: 'inline-block',}}>
+      <Menu />
+      </div>
     </div>
   </header>
 )
